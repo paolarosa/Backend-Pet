@@ -33,7 +33,6 @@ class PetView(APIView, CustomPageNumberPagination):
         serializer = PetSerializer(pet)
         return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
-
     def get(self, request):
         trait = request.query_params.get("trait", None)
         if trait:
@@ -46,17 +45,13 @@ class PetView(APIView, CustomPageNumberPagination):
         result_page = self.paginate_queryset(pets, request, view=self)
         serializer= PetSerializer(result_page, many=True)
         return self.get_paginated_response(serializer.data)
-        """ pets = Pet.objects.all()
-        result_page = self.paginate_queryset(pets, request, view=self)
-        serializer = PetSerializer(result_page, many=True)
-        return self.get_paginated_response(serializer.data) """
+
 
 class PetDetailView(APIView):
     def get(self, request, pet_id):
         pet = get_object_or_404(Pet, id=pet_id)
         serializer = PetSerializer(pet)
         return Response(serializer.data, status.HTTP_200_OK) 
-    
 
     def delete(self, request, pet_id):
         pet = get_object_or_404(Pet, id=pet_id)
@@ -79,8 +74,6 @@ class PetDetailView(APIView):
             except Group.DoesNotExist:
                 group_obj = Group.objects.create(**groups)
             pet.group = group_obj
-        
-        """ pet = Pet.objects.create(**serializer.validated_data, group=group_obj) """
         
         if traits:
             trait_list = []
