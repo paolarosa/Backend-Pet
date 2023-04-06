@@ -43,6 +43,12 @@ INSTALLED_APPS = [
     "rest_framework",
 ]
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'pet_kare.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2
+}
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
