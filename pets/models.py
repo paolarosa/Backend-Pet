@@ -15,4 +15,4 @@ class Pet(models.Model):
     traits = models.ManyToManyField("traits.Trait", related_name="pets")
 
     def __repr__(self) -> str:
-        return f"<[{self.id}] {self.name} - {self.age}years - {self.weight}kg - {self.sex} - {self.group} - {self.traits}>"
+        return f"<[{self.id}] {self.name} - {self.age}yGears - {self.weight}kg - {self.sex} - {self.group} - {self.traits}>"

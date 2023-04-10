@@ -88,7 +88,7 @@ class PetDetailView(APIView):
             pet.traits.set(trait_list)
 
         for key,value in serializer.validated_data.items():
-            setattr(pet, key, value)
+            setattr(pet, key, value)   #seta o atributo de pet dentro da key e value recebida
 
         pet.save()
         serializer = PetSerializer(pet)

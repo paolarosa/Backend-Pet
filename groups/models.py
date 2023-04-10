@@ -6,3 +6,4 @@ class Group(models.Model):
 
     def __repr__(self) -> str:
         return f"<[{self.id}] {self.scientific_name} - {self.created_at}"
+    
